@@ -45,10 +45,9 @@ function CrudApp() {
 
   // GET - Fetch all items
   const handleGet = async () => {
-    const result = await getApi.fetchData(API_URL);
-    if (result) {
-      showSuccess(`Loaded ${result.length} posts successfully`);
-    } else if (getApi.state.error) {
+    await getApi.fetchData(API_URL);
+
+    if (getApi.state.error) {
       showError(`Failed to load posts: ${getApi.state.error}`);
     }
   };
